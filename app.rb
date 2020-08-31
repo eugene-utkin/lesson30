@@ -90,3 +90,8 @@ get '/barber/:id' do
   @barber = Barber.find(params[:id])
   erb :barber
 end
+
+get '/showusers' do
+  @client = Client.order('created_at DESC')
+  erb :showusers
+end

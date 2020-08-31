@@ -17,9 +17,9 @@
     </tr>
   </thead>
   <tbody>
-  	<% @results.each do |row| %>
+  	<% @client.each do |row| %>
     <tr>
-      <td><%= row['username']%></td>
+      <td><a href="/client/<%= row['id'] %>"><%= row['name']%></a></td>
       <td><%= row['phone']%></td>
       <td><%= row['datestamp']%></td>
       <td><%= row['barber']%></td>
