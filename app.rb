@@ -85,3 +85,7 @@ post '/contacts' do
 
         erb :message
 end
+
+get '/barber/:id' do
+  erb :barber
+end
