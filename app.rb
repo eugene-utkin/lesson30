@@ -23,6 +23,7 @@ end
 
 before do
 	@barbers = Barber.all
+  
 end
 
 get '/' do
@@ -30,16 +31,17 @@ get '/' do
 end
 
 get '/visit' do
+  @c = Client.new
         erb :visit
 end
 
 post '/visit' do
         
-        c = Client.new params[:client]
-        if c.save
+        @c = Client.new params[:client]
+        if @c.save
           erb "<h2>Спасибо, вы записались!</h2>"
         else
-          @error = c.errors.full_messages.first
+          @error = @c.errors.full_messages.first
           erb :visit
         end
 
